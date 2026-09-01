@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="AI-powered cognitive gaming and memory assistance platform for elderly dementia patients in the North Eastern Region (NER) of India" />
+    <meta name="theme-color" content="#1B5E20" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+    <title>Freebuff — NER Cognitive Care</title>
+    <style>
+      /* Loading screen */
+      #loading-screen {
+        position: fixed; inset: 0; z-index: 9999;
+        background: linear-gradient(135deg, #1B5E20, #2E7D32);
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        color: white; font-family: system-ui;
+      }
+      #loading-screen .logo { font-size: 72px; margin-bottom: 16px; animation: pulse 1.5s infinite; }
+      #loading-screen h1 { font-size: 28px; font-weight: 700; }
+      #loading-screen p { font-size: 16px; opacity: 0.8; margin-top: 8px; }
+      @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+    </style>
+  </head>
+  <body>
+    <div id="loading-screen">
+      <div class="logo">🧠</div>
+      <h1>Freebuff</h1>
+      <p>Loading your cognitive wellness companion...</p>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Remove loading screen after app loads
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const el = document.getElementById('loading-screen');
+          if (el) { el.style.opacity = '0'; el.style.transition = 'opacity 0.3s'; setTimeout(() => el.remove(), 300); }
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
